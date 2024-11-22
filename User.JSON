@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "Johnny",
+    "Age": 54,
+    "Product": { "product_ID": 4311, "quantity": 3 }
+  },
+
+  {
+    "Name": "JOME",
+    "Age": 84,
+    "Product": { "product_ID": 1234, "quantity": 2 }
+  },
+
+  {
+    "Name": "Q",
+    "Age": 12,
+    "Product": { "product_ID": 4321, "quantity": 54 }
+  }
+]
