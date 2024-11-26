@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users and Products</title>
+  </head>
+  <body>
+    <h1>Users and Products</h1>
+    <div id="users"></div>
+    <script>
+      async function fetchData() {
+        const usersResponse = await fetch("/users");
+        const productsResponse = await fetch("/products");
+        const users = await usersResponse.json();
+        const products = await productsResponse.json();
+
+        let grandTotal = 0;
+        const usersDiv = document.getElementById("users");
+
+        users.forEach((user) => {
+          let userDiv = document.createElement("div");
+          let userTotal = user.Products.reduce((total, item) => {
+            const product = products.find((p) => p.ID === item.product_ID);
+            return total + product.Price * item.quantity;
+          }, 0);
+
+          grandTotal += userTotal;
+
+          userDiv.innerHTML = `
+                    <h2>${user.Name} (Age: ${user.Age})</h2>
+                    <p>Total Purchase: $${userTotal}</p>
+                `;
+
+          usersDiv.appendChild(userDiv);
+        });
+
+        // Send grand total back to the server
+        await fetch("/productData", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ grandTotal }),
+        });
+      }
+
+      fetchData();
+    </script>
+  </body>
+</html>

@@ -1,36 +1,35 @@
 const express = require("express");
-const path = require("path");
 const fs = require("fs");
-const cors = require("cors");
+const path = require("path");
+
 const app = express();
-
-function getData() {
-  return fs.readFileSync("data.json", "utf-8");
-}
-function writeData(data) {
-  let newData = getData();
-  newData += fs.writeFileSync();
-}
-
 app.use(express.json());
 
+const PORT = process.env.PORT || 3000;
+
 app.get("/", (req, res) => {
-  res.json({
-    name: "bob",
-    age: 100,
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.get("/users", (req, res) => {
+  fs.readFile(path.join(__dirname, "user.json"), "utf8", (err, data) => {
+    if (err) throw err;
+    res.json(JSON.parse(data));
   });
 });
 
-app.get("/path", (req, res) => {
-  res.sendFile(path.join(__dirname, "/indext.HTML"));
+app.get("/products", (req, res) => {
+  fs.readFile(path.join(__dirname, "products.json"), "utf8", (err, data) => {
+    if (err) throw err;
+    res.json(JSON.parse(data));
+  });
 });
 
-app.post("/", (req, res) => {
-  const data = req.body;
-  writeData(JSON.stringify(data));
-  console.log(data);
+app.post("/productData", (req, res) => {
+  console.log("Grand Total:", req.body.grandTotal);
+  res.sendStatus(200);
 });
 
-app.listen(3000, () => {
-  console.log("server running!");
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

@@ -1,33 +1,6 @@
 [
-  {
-    "iD": 4231,
-
-    "ProductName": "Edie's SPULENKEN LIVE HAMBERGERS!",
-
-    "Price": 45.95
-  },
-
-  {
-    "iD": 4321,
-
-    "ProductName": "Edie's giant real TOES!",
-
-    "Price": 0.5
-  },
-
-  {
-    "iD": 1234,
-
-    "ProductName": "Edie's STINKY GASOLINE",
-
-    "Price": 650.54
-  },
-
-  {
-    "iD": 4311,
-
-    "ProductName": "Edie's Candy Wrenches",
-
-    "Price": 296.99
-  }
+  { "ID": 1, "ProductName": "Green cheese", "Price": 100 },
+  { "ID": 2, "ProductName": "hamster poop", "Price": 150 },
+  { "ID": 3, "ProductName": "rat food", "Price": 200 },
+  { "ID": 4, "ProductName": "Rat poison", "Price": 250 }
 ]

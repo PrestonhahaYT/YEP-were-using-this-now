@@ -1,19 +1,27 @@
 [
   {
-    "Name": "Johnny",
-    "Age": 54,
-    "Product": { "product_ID": 4311, "quantity": 3 }
+    "Name": "Alice",
+    "Age": 30,
+    "Products": [
+      { "product_ID": 1, "quantity": 2 },
+      { "product_ID": 2, "quantity": 1 },
+      { "product_ID": 3, "quantity": 1 }
+    ]
   },
-
   {
-    "Name": "JOME",
-    "Age": 84,
-    "Product": { "product_ID": 1234, "quantity": 2 }
+    "Name": "Bob",
+    "Age": 25,
+    "Products": [
+      { "product_ID": 2, "quantity": 3 },
+      { "product_ID": 4, "quantity": 1 }
+    ]
   },
-
   {
-    "Name": "Q",
-    "Age": 12,
-    "Product": { "product_ID": 4321, "quantity": 54 }
+    "Name": "Charlie",
+    "Age": 35,
+    "Products": [
+      { "product_ID": 1, "quantity": 1 },
+      { "product_ID": 3, "quantity": 2 }
+    ]
   }
 ]
